@@ -8,8 +8,8 @@ const Cube = () => {
 
   return (
     <div className="cube">
-      <SpinButtons />
-      Cube{cubeState.currentSide}
+      <SpinButtons cubeDispatch={cubeDispatch} />
+      Cube<span style={{ fontSize: "3rem" }}>{cubeState.currentSide}</span>
     </div>
   );
 };
