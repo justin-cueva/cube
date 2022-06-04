@@ -29,15 +29,18 @@ const MixButtons = ({ cubeDispatch }) => {
       >
         mix
       </button>
-      {/* <button
+      <button
         type="button"
         className="mix-btn mix-btn--bottom-right"
         onClick={() =>
-          cubeDispatch({ type: "ROTATE_BOTTOM", payload: { button: "RIGHT" } })
+          cubeDispatch({
+            type: "ROTATE_BOTTOM_TO_RIGHT",
+            payload: { button: "RIGHT" },
+          })
         }
       >
         mix
-      </button> */}
+      </button>
     </Fragment>
   );
 };
