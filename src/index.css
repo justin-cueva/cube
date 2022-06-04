@@ -16,4 +16,34 @@ body {
 
 .app {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube {
+  position: relative;
+  height: 28rem;
+  width: 28rem;
+  background-color: #eee;
+}
+
+.spin-btn {
+  position: absolute;
+}
+.spin-btn.top {
+  top: -4rem;
+  left: 50%;
+}
+.spin-btn.bottom {
+  bottom: -4rem;
+  left: 50%;
+}
+.spin-btn.left {
+  left: -4rem;
+  top: 50%;
+}
+.spin-btn.right {
+  right: -4rem;
+  top: 50%;
 }
