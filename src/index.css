@@ -28,6 +28,7 @@ body {
   background-color: #eee;
 }
 
+/* SPIN buttons  */
 .spin-btn {
   position: absolute;
 }
@@ -46,4 +47,33 @@ body {
 .spin-btn.right {
   right: -4rem;
   top: 50%;
+}
+
+/* MIX buttons */
+.mix-btn {
+  position: absolute;
+}
+.mix-btn--top-left,
+.mix-btn--top-right {
+  transform: translateY(-100%);
+}
+.mix-btn--top-left {
+  top: 0;
+  left: 0;
+}
+.mix-btn--top-right {
+  top: 0;
+  right: 0;
+}
+.mix-btn--bottom-left,
+.mix-btn--bottom-right {
+  transform: translateY(100%);
+}
+.mix-btn--bottom-left {
+  bottom: 0;
+  left: 0;
+}
+.mix-btn--bottom-right {
+  bottom: 0;
+  right: 0;
 }
