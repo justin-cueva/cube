@@ -3,20 +3,29 @@ import { Fragment } from "react";
 const MixButtons = ({ cubeDispatch }) => {
   return (
     <Fragment>
-      {/* <button
+      <button
         type="button"
         className="mix-btn mix-btn--top-left"
-        onClick={() => cubeDispatch({ type: "", payload: { currentSide: 1 } })}
+        onClick={() =>
+          cubeDispatch({
+            type: "ROTATE_TOP_TO_LEFT",
+            payload: { currentSide: 1 },
+          })
+        }
       >
         mix
       </button>
       <button
         type="button"
         className="mix-btn mix-btn--top-right "
-        onClick={() => cubeDispatch({ type: "", payload: { currentSide: 1 } })}
+        onClick={() =>
+          cubeDispatch({
+            type: "ROTATE_TOP_TO_RIGHT",
+          })
+        }
       >
         mix
-      </button> */}
+      </button>
       <button
         type="button"
         className="mix-btn mix-btn--bottom-left "

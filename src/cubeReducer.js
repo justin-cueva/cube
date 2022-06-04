@@ -17,6 +17,100 @@ export const initialCubeState = {
 
 export const cubeReducer = (state = initialCubeState, action) => {
   switch (action.type) {
+    case "ROTATE_TOP_TO_RIGHT":
+      const newCurrentSideRotateTopToRight = [
+        ...state.cube[state.currentSide],
+      ].map((item, index) => {
+        if (index === 0 || index === 1 || index === 2) {
+          return state.cube[state.left][index];
+        } else {
+          return item;
+        }
+      });
+      const newRightSideRotateTopToRight = [...state.cube[state.right]].map(
+        (item, index) => {
+          if (index === 0 || index === 1 || index === 2) {
+            return state.cube[state.currentSide][index];
+          } else {
+            return item;
+          }
+        }
+      );
+      const newBackSideRotateTopToRight = [...state.cube[state.back]].map(
+        (item, index) => {
+          if (index === 0 || index === 1 || index === 2) {
+            return state.cube[state.right][index];
+          } else {
+            return item;
+          }
+        }
+      );
+      const newLeftSideRotateTopToRight = [...state.cube[state.left]].map(
+        (item, index) => {
+          if (index === 0 || index === 1 || index === 2) {
+            return state.cube[state.back][index];
+          } else {
+            return item;
+          }
+        }
+      );
+      return {
+        ...state,
+        cube: {
+          ...state.cube,
+          [state.currentSide]: newCurrentSideRotateTopToRight,
+          [state.right]: newRightSideRotateTopToRight,
+          [state.back]: newBackSideRotateTopToRight,
+          [state.left]: newLeftSideRotateTopToRight,
+        },
+      };
+    case "ROTATE_TOP_TO_LEFT":
+      const newCurrentSideRotateTopToLeft = [
+        ...state.cube[state.currentSide],
+      ].map((item, index) => {
+        if (index === 0 || index === 1 || index === 2) {
+          return state.cube[state.right][index];
+        } else {
+          return item;
+        }
+      });
+      const newRightSideRotateTopToLeft = [...state.cube[state.right]].map(
+        (item, index) => {
+          if (index === 0 || index === 1 || index === 2) {
+            return state.cube[state.back][index];
+          } else {
+            return item;
+          }
+        }
+      );
+      const newBackSideRotateTopToLeft = [...state.cube[state.back]].map(
+        (item, index) => {
+          if (index === 0 || index === 1 || index === 2) {
+            return state.cube[state.left][index];
+          } else {
+            return item;
+          }
+        }
+      );
+      const newLeftSideRotateTopToLeft = [...state.cube[state.left]].map(
+        (item, index) => {
+          if (index === 0 || index === 1 || index === 2) {
+            return state.cube[state.currentSide][index];
+          } else {
+            return item;
+          }
+        }
+      );
+      return {
+        ...state,
+        cube: {
+          ...state.cube,
+          [state.currentSide]: newCurrentSideRotateTopToLeft,
+          [state.right]: newRightSideRotateTopToLeft,
+          [state.back]: newBackSideRotateTopToLeft,
+          [state.left]: newLeftSideRotateTopToLeft,
+        },
+      };
     case "ROTATE_BOTTOM_TO_RIGHT":
       const newCurrentSideRotateBottomToRight = [
         ...state.cube[state.currentSide],
