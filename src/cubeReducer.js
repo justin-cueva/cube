@@ -3,7 +3,7 @@ export const initialCubeState = {
     0: [0, 0, 0, 0, 0, 0, 0, 0, 0],
     1: [1, 1, 1, 1, 1, 1, 1, 1, 1],
     2: [2, 2, 2, 2, 2, 2, 2, 2, 2],
-    3: [3, 3, 3, 3, 3, 3, 3, 3, 3],
+    3: [0, 1, 2, 0, 3, 5, 0, 7, 8],
     4: [4, 4, 4, 4, 4, 4, 4, 4, 4],
     5: [5, 5, 5, 5, 5, 5, 5, 5, 5],
   },
@@ -17,7 +17,7 @@ export const initialCubeState = {
 
 export const cubeReducer = (state = initialCubeState, action) => {
   switch (action.type) {
-    case "ROTATE_TOP_OR_BOTTOM_TO_LEFT":
+    case "SPIN_LEFT":
       const newCurrentSideRotateTopOrBottomToLeft = [
         ...state.cube[state.currentSide],
       ].map((item, index) => {
@@ -80,7 +80,7 @@ export const cubeReducer = (state = initialCubeState, action) => {
           [state.left]: newLeftSideRotateTopOrBottomToLeft,
         },
       };
-    case "ROTATE_TOP_OR_BOTTOM_TO_RIGHT":
+    case "SPIN_RIGHT":
       const newCurrentSideRotateTopOrBottomToRight = [
         ...state.cube[state.currentSide],
       ].map((item, index) => {
