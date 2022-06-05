@@ -114,23 +114,6 @@ export const cubeReducer = (state = initialCubeState, action) => {
         }
       });
 
-      // const newSpunBottom = (rowSpun) => {
-      //   if (rowSpun === "TOP") return state.cube[state.bottom];
-      //   else {
-      //     return [...bottomCol3, ...bottomCol2, ...bottomCol1];
-      //   }
-      // };
-      // const newSpunTop = (rowSpun) => {
-      //   if (rowSpun === "BOTTOM") return state.cube[state.top];
-      //   else {
-      //     return [
-      //       ...topCol1.reverse(),
-      //       ...topCol2.reverse(),
-      //       ...topCol3.reverse(),
-      //     ];
-      //   }
-      // };
-
       return {
         ...state,
         cube: {
