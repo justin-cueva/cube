@@ -3,7 +3,7 @@ export const initialCubeState = {
     0: [0, 0, 0, 0, 0, 0, 0, 0, 0],
     1: [1, 1, 1, 1, 1, 1, 1, 1, 1],
     2: [2, 2, 2, 2, 2, 2, 2, 2, 2],
-    3: [3, 3, 3, 3, 3, 3, 3, 3, 3],
+    3: [0, 0, 0, 3, 3, 3, 3, 3, 3],
     4: [4, 4, 4, 4, 4, 4, 4, 4, 4],
     5: [5, 5, 5, 5, 5, 5, 5, 5, 5],
   },
@@ -16,8 +16,51 @@ export const initialCubeState = {
 };
 
 export const cubeReducer = (state = initialCubeState, action) => {
+  const bottomCol1 = [...state.cube[state.bottom]].filter((item, index) => {
+    if (index === 0 || index === 3 || index === 6) return true;
+    else return false;
+  });
+  const bottomCol2 = [...state.cube[state.bottom]].filter((item, index) => {
+    if (index === 1 || index === 4 || index === 7) return true;
+    else return false;
+  });
+  const bottomCol3 = [...state.cube[state.bottom]].filter((item, index) => {
+    if (index === 2 || index === 5 || index === 8) return true;
+    else return false;
+  });
+  const topCol1 = [...state.cube[state.top]].filter((item, index) => {
+    if (index === 0 || index === 3 || index === 6) return true;
+    else return false;
+  });
+  const topCol2 = [...state.cube[state.top]].filter((item, index) => {
+    if (index === 1 || index === 4 || index === 7) return true;
+    else return false;
+  });
+  const topCol3 = [...state.cube[state.top]].filter((item, index) => {
+    if (index === 2 || index === 5 || index === 8) return true;
+    else return false;
+  });
+  const newSpunBottom = (rowSpun, directionSpun) => {
+    if (rowSpun === "TOP") return state.cube[state.bottom];
+    if (directionSpun === "LEFT") {
+      return [...bottomCol3, ...bottomCol2, ...bottomCol1];
+    }
+    if (directionSpun === "RIGHT")
+      return [
+        ...bottomCol1.reverse(),
+        ...bottomCol2.reverse(),
+        ...bottomCol3.reverse(),
+      ];
+  };
+  const newSpunTop = (rowSpun, directionSpun) => {
+    if (rowSpun === "BOTTOM") return state.cube[state.top];
+    if (directionSpun === "LEFT") {
+      return [...topCol1.reverse(), ...topCol2.reverse(), ...topCol3.reverse()];
+    }
+    if (directionSpun === "RIGHT") return [...topCol3, ...topCol2, ...topCol1];
+  };
   switch (action.type) {
-    case "ROTATE_TOP_OR_BOTTOM_TO_LEFT":
+    case "SPIN_LEFT":
       const newCurrentSideRotateTopOrBottomToLeft = [
         ...state.cube[state.currentSide],
       ].map((item, index) => {
@@ -70,6 +113,7 @@ export const cubeReducer = (state = initialCubeState, action) => {
           return item;
         }
       });
+
       return {
         ...state,
         cube: {
@@ -78,9 +122,17 @@ export const cubeReducer = (state = initialCubeState, action) => {
           [state.right]: newRightSideRotateTopOrBottomToLeft,
           [state.back]: newBackSideRotateTopOrBottomToLeft,
           [state.left]: newLeftSideRotateTopOrBottomToLeft,
+          [state.bottom]: newSpunBottom(
+            action.payload.rowSpun,
+            action.payload.directionSpun
+          ),
+          [state.top]: newSpunTop(
+            action.payload.rowSpun,
+            action.payload.directionSpun
+          ),
         },
       };
-    case "ROTATE_TOP_OR_BOTTOM_TO_RIGHT":
+    case "SPIN_RIGHT":
       const newCurrentSideRotateTopOrBottomToRight = [
         ...state.cube[state.currentSide],
       ].map((item, index) => {
@@ -141,6 +193,14 @@ export const cubeReducer = (state = initialCubeState, action) => {
           [state.right]: newRightSideRotateTopOrBottomToRight,
           [state.back]: newBackSideRotateTopOrBottomToRight,
           [state.left]: newLeftSideRotateTopOrBottomToRight,
+          [state.bottom]: newSpunBottom(
+            action.payload.rowSpun,
+            action.payload.directionSpun
+          ),
+          [state.top]: newSpunTop(
+            action.payload.rowSpun,
+            action.payload.directionSpun
+          ),
         },
       };
     case "VIEW_TOP":

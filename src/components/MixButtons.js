@@ -8,8 +8,12 @@ const MixButtons = ({ cubeDispatch }) => {
         className="mix-btn mix-btn--top-left"
         onClick={() =>
           cubeDispatch({
-            type: "ROTATE_TOP_OR_BOTTOM_TO_LEFT",
-            payload: { toBeSwappedOut: [0, 1, 2] },
+            type: "SPIN_LEFT",
+            payload: {
+              toBeSwappedOut: [0, 1, 2],
+              rowSpun: "TOP",
+              directionSpun: "LEFT",
+            },
           })
         }
       >
@@ -20,8 +24,12 @@ const MixButtons = ({ cubeDispatch }) => {
         className="mix-btn mix-btn--top-right "
         onClick={() =>
           cubeDispatch({
-            type: "ROTATE_TOP_OR_BOTTOM_TO_RIGHT",
-            payload: { toBeSwappedOut: [0, 1, 2] },
+            type: "SPIN_RIGHT",
+            payload: {
+              toBeSwappedOut: [0, 1, 2],
+              rowSpun: "TOP",
+              directionSpun: "RIGHT",
+            },
           })
         }
       >
@@ -32,8 +40,12 @@ const MixButtons = ({ cubeDispatch }) => {
         className="mix-btn mix-btn--bottom-left "
         onClick={() =>
           cubeDispatch({
-            type: "ROTATE_TOP_OR_BOTTOM_TO_LEFT",
-            payload: { toBeSwappedOut: [6, 7, 8] },
+            type: "SPIN_LEFT",
+            payload: {
+              toBeSwappedOut: [6, 7, 8],
+              rowSpun: "BOTTOM",
+              directionSpun: "LEFT",
+            },
           })
         }
       >
@@ -44,8 +56,12 @@ const MixButtons = ({ cubeDispatch }) => {
         className="mix-btn mix-btn--bottom-right"
         onClick={() =>
           cubeDispatch({
-            type: "ROTATE_TOP_OR_BOTTOM_TO_RIGHT",
-            payload: { toBeSwappedOut: [6, 7, 8] },
+            type: "SPIN_RIGHT",
+            payload: {
+              toBeSwappedOut: [6, 7, 8],
+              rowSpun: "BOTTOM",
+              directionSpun: "RIGHT",
+            },
           })
         }
       >
