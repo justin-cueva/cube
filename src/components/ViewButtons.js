@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-const SpinButtons = ({ cubeDispatch }) => {
+const ViewButtons = ({ cubeDispatch }) => {
   return (
     <Fragment>
       <button
@@ -16,7 +16,7 @@ const SpinButtons = ({ cubeDispatch }) => {
         className="spin-btn right"
         type="button"
         onClick={() => {
-          cubeDispatch({ type: "VIEW_RIGHT_SIDE" });
+          cubeDispatch({ type: "VIEW_RIGHT" });
         }}
       >
         right
@@ -34,7 +34,7 @@ const SpinButtons = ({ cubeDispatch }) => {
         className="spin-btn left"
         type="button"
         onClick={() => {
-          cubeDispatch({ type: "VIEW_LEFT_SIDE" });
+          cubeDispatch({ type: "VIEW_LEFT" });
         }}
       >
         left
@@ -43,4 +43,4 @@ const SpinButtons = ({ cubeDispatch }) => {
   );
 };
 
-export default SpinButtons;
+export default ViewButtons;
