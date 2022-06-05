@@ -9,7 +9,7 @@ const MixButtons = ({ cubeDispatch }) => {
         onClick={() =>
           cubeDispatch({
             type: "SPIN_LEFT",
-            payload: { toBeSwappedOut: [0, 1, 2] },
+            payload: { toBeSwappedOut: [0, 1, 2], rowSpun: "TOP" },
           })
         }
       >
@@ -21,7 +21,7 @@ const MixButtons = ({ cubeDispatch }) => {
         onClick={() =>
           cubeDispatch({
             type: "SPIN_RIGHT",
-            payload: { toBeSwappedOut: [0, 1, 2] },
+            payload: { toBeSwappedOut: [0, 1, 2], rowSpun: "TOP" },
           })
         }
       >
@@ -33,7 +33,10 @@ const MixButtons = ({ cubeDispatch }) => {
         onClick={() =>
           cubeDispatch({
             type: "SPIN_LEFT",
-            payload: { toBeSwappedOut: [6, 7, 8] },
+            payload: {
+              toBeSwappedOut: [6, 7, 8],
+              rowSpun: "BOTTOM",
+            },
           })
         }
       >
@@ -45,7 +48,10 @@ const MixButtons = ({ cubeDispatch }) => {
         onClick={() =>
           cubeDispatch({
             type: "SPIN_RIGHT",
-            payload: { toBeSwappedOut: [6, 7, 8] },
+            payload: {
+              toBeSwappedOut: [6, 7, 8],
+              rowSpun: "BOTTOM",
+            },
           })
         }
       >
