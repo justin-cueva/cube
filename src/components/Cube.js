@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useReducer } from "react";
 
 import SpinButtons from "./SpinButtons";
+import MixButtons from "./MixButtons";
 import { cubeReducer, initialCubeState } from "../cubeReducer";
 
 const Cube = () => {
@@ -13,7 +14,14 @@ const Cube = () => {
   return (
     <div className="cube">
       <SpinButtons cubeDispatch={cubeDispatch} />
-      Cube<span style={{ fontSize: "3rem" }}>{cubeState.currentSide}</span>
+      <MixButtons cubeDispatch={cubeDispatch} />
+      Cube
+      <span
+        style={{ fontSize: "3rem" }}
+        onClick={() => console.log(cubeState.cube)}
+      >
+        {cubeState.currentSide}
+      </span>
       <div
         style={{
           display: "grid",
@@ -22,7 +30,11 @@ const Cube = () => {
         }}
       >
         {cubeState.cube[cubeState.currentSide].map((num, index) => {
-          return <div key={index}>{num}</div>;
+          return (
+            <div style={{ fontSize: "1.8rem" }} key={index}>
+              {num}
+            </div>
+          );
         })}
       </div>
     </div>

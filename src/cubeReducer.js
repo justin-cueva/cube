@@ -17,6 +17,132 @@ export const initialCubeState = {
 
 export const cubeReducer = (state = initialCubeState, action) => {
   switch (action.type) {
+    case "ROTATE_TOP_OR_BOTTOM_TO_LEFT":
+      const newCurrentSideRotateTopOrBottomToLeft = [
+        ...state.cube[state.currentSide],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.right][index];
+        } else {
+          return item;
+        }
+      });
+      const newRightSideRotateTopOrBottomToLeft = [
+        ...state.cube[state.right],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.back][index];
+        } else {
+          return item;
+        }
+      });
+      const newBackSideRotateTopOrBottomToLeft = [
+        ...state.cube[state.back],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.left][index];
+        } else {
+          return item;
+        }
+      });
+      const newLeftSideRotateTopOrBottomToLeft = [
+        ...state.cube[state.left],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.currentSide][index];
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        cube: {
+          ...state.cube,
+          [state.currentSide]: newCurrentSideRotateTopOrBottomToLeft,
+          [state.right]: newRightSideRotateTopOrBottomToLeft,
+          [state.back]: newBackSideRotateTopOrBottomToLeft,
+          [state.left]: newLeftSideRotateTopOrBottomToLeft,
+        },
+      };
+    case "ROTATE_TOP_OR_BOTTOM_TO_RIGHT":
+      const newCurrentSideRotateTopOrBottomToRight = [
+        ...state.cube[state.currentSide],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.left][index];
+        } else {
+          return item;
+        }
+      });
+      const newRightSideRotateTopOrBottomToRight = [
+        ...state.cube[state.right],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.currentSide][index];
+        } else {
+          return item;
+        }
+      });
+      const newBackSideRotateTopOrBottomToRight = [
+        ...state.cube[state.back],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.right][index];
+        } else {
+          return item;
+        }
+      });
+      const newLeftSideRotateTopOrBottomToRight = [
+        ...state.cube[state.left],
+      ].map((item, index) => {
+        if (
+          index === action.payload.toBeSwappedOut[0] ||
+          index === action.payload.toBeSwappedOut[1] ||
+          index === action.payload.toBeSwappedOut[2]
+        ) {
+          return state.cube[state.back][index];
+        } else {
+          return item;
+        }
+      });
+      return {
+        ...state,
+        cube: {
+          ...state.cube,
+          [state.currentSide]: newCurrentSideRotateTopOrBottomToRight,
+          [state.right]: newRightSideRotateTopOrBottomToRight,
+          [state.back]: newBackSideRotateTopOrBottomToRight,
+          [state.left]: newLeftSideRotateTopOrBottomToRight,
+        },
+      };
     case "VIEW_TOP":
       return {
         ...state,
