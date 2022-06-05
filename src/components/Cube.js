@@ -14,7 +14,7 @@ const Cube = () => {
   return (
     <div className="cube">
       <SpinButtons cubeDispatch={cubeDispatch} />
-      <MixButtons cubeDispatch={cubeDispatch} />
+      <MixButtons cubeDispatch={cubeDispatch} cubeState={cubeState} />
       Cube
       <span
         style={{ fontSize: "3rem" }}
