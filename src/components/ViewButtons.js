@@ -16,7 +16,7 @@ const ViewButtons = ({ cubeDispatch }) => {
         className="spin-btn right"
         type="button"
         onClick={() => {
-          cubeDispatch({ type: "VIEW_RIGHT_SIDE" });
+          cubeDispatch({ type: "VIEW_RIGHT" });
         }}
       >
         right
@@ -34,7 +34,7 @@ const ViewButtons = ({ cubeDispatch }) => {
         className="spin-btn left"
         type="button"
         onClick={() => {
-          cubeDispatch({ type: "VIEW_LEFT_SIDE" });
+          cubeDispatch({ type: "VIEW_LEFT" });
         }}
       >
         left

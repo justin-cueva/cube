@@ -206,34 +206,62 @@ export const cubeReducer = (state = initialCubeState, action) => {
     case "VIEW_TOP":
       return {
         ...state,
-        currentSide: state.top,
-        top: state.back,
-        bottom: state.currentSide,
-        back: state.bottom,
+        currentSide: 1,
+        back: 3,
+        top: 5,
+        bottom: 0,
+        left: 2,
+        right: 4,
       };
     case "VIEW_BOTTOM":
       return {
         ...state,
-        currentSide: state.bottom,
-        top: state.currentSide,
-        bottom: state.back,
-        back: state.top,
+        currentSide: 3,
+        back: 1,
+        top: 0,
+        bottom: 5,
+        left: 2,
+        right: 4,
       };
-    case "VIEW_LEFT_SIDE":
+    case "VIEW_LEFT":
       return {
         ...state,
-        currentSide: state.left,
-        back: state.right,
-        right: state.currentSide,
-        left: state.back,
+        currentSide: 2,
+        back: 4,
+        top: 1,
+        bottom: 3,
+        left: 5,
+        right: 0,
       };
-    case "VIEW_RIGHT_SIDE":
+    case "VIEW_RIGHT":
       return {
         ...state,
-        left: state.currentSide,
-        back: state.left,
-        currentSide: state.right,
-        right: state.back,
+        currentSide: 4,
+        back: 2,
+        top: 1,
+        bottom: 3,
+        left: 0,
+        right: 5,
+      };
+    case "VIEW_FRONT":
+      return {
+        ...state,
+        currentSide: 0,
+        top: 1,
+        left: 2,
+        bottom: 3,
+        right: 4,
+        back: 5,
+      };
+    case "VIEW_BACK":
+      return {
+        ...state,
+        currentSide: 5,
+        top: 1,
+        bottom: 3,
+        left: 4,
+        right: 2,
+        back: 0,
       };
     default:
       return state;
