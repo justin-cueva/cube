@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-const SpinButtons = ({ cubeDispatch }) => {
+const ViewButtons = ({ cubeDispatch }) => {
   return (
     <Fragment>
       <button
@@ -43,4 +43,4 @@ const SpinButtons = ({ cubeDispatch }) => {
   );
 };
 
-export default SpinButtons;
+export default ViewButtons;
