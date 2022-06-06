@@ -1,31 +1,13 @@
 import React, { Fragment, useEffect, useReducer } from "react";
 
-import ViewButtons from "./ViewButtons";
 import MixButtons from "./MixButtons";
-// import { cubeReducer, initialCubeState } from "../cubeReducer";
 import "../styles/cube.css";
 
 const Cube = ({ cubeDispatch, cubeState }) => {
   return (
     <div className="cube">
-      <ViewButtons cubeDispatch={cubeDispatch} />
       <MixButtons cubeDispatch={cubeDispatch} cubeState={cubeState} />
-      <button
-        // className="mix-btn"
-        style={{ position: "absolute", top: "-5rem" }}
-        type="button"
-        onClick={() => cubeDispatch({ type: "VIEW_FRONT" })}
-      >
-        Front
-      </button>
-      <button
-        style={{ position: "absolute", top: "-5rem", right: "0" }}
-        // className="mix-btn"
-        type="button"
-        onClick={() => cubeDispatch({ type: "VIEW_BACK" })}
-      >
-        Back
-      </button>
+
       {/* Cube
       <span
         style={{ fontSize: "3rem" }}

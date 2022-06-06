@@ -21,30 +21,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* SPIN buttons  */
-.spin-btn {
-  position: absolute;
-}
-.spin-btn.top {
-  top: -4rem;
-  left: 50%;
-}
-.spin-btn.bottom {
-  bottom: -4rem;
-  left: 50%;
-}
-.spin-btn.left {
-  left: -4rem;
-  top: 50%;
-}
-.spin-btn.right {
-  right: -4rem;
-  top: 50%;
-}
-.btn-view-front {
-  top: 0;
-}
-
 /* MIX buttons */
 .mix-btn {
   position: absolute;
