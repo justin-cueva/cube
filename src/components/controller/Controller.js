@@ -10,16 +10,17 @@ const buttons = [
   { view: "Bottom", number: 3 },
 ];
 
-const Controller = ({ cubeDispatch }) => {
+const Controller = ({ cubeDispatch, cubeState }) => {
   return (
     <div className="controller-container">
       <h2 style={{ fontSize: "2rem" }}>Controller</h2>
       {buttons.map(({ view, number }, index) => {
+        const active = cubeState.currentSide === number ? `bg-${number}` : "";
         return (
           <button
             key={index}
             type="button"
-            className={`view-btn x-${number}`}
+            className={`view-btn x-${number} ${active}`}
             onClick={() => cubeDispatch({ type: `VIEW_${view.toUpperCase()}` })}
           >
             {view}
