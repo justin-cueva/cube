@@ -1,0 +1,16 @@
+.controller-container {
+  /* background-color: #f7f7f7; */
+  background-color: red;
+  border-radius: 2rem;
+  height: 95vh;
+  width: 40vw;
+  /* margin-left: 2.5vh; */
+  margin-left: 5rem;
+  margin-top: 5rem;
+  padding: 2rem;
+  max-width: 60rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  max-height: 72rem;
+}

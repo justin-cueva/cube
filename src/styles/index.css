@@ -15,8 +15,14 @@ body {
 /* *********************************** */
 
 .app {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: space-between;
+  max-width: 150rem;
+  /* max-height: 72rem; */
+  margin: 0 auto;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
