@@ -1,21 +1,10 @@
-import React, { Fragment, useEffect, useReducer } from "react";
+import React from "react";
 
-import MixButtons from "./MixButtons";
 import "../styles/cube.css";
 
-const Cube = ({ cubeDispatch, cubeState }) => {
+const Cube = ({ cubeState }) => {
   return (
     <div className="cube">
-      <MixButtons cubeDispatch={cubeDispatch} cubeState={cubeState} />
-
-      {/* Cube
-      <span
-        style={{ fontSize: "3rem" }}
-        onClick={() => console.log(cubeState.cube)}
-      >
-        {cubeState.currentSide}
-      </span> */}
-
       {cubeState.cube[cubeState.currentSide].map((num, index) => {
         return (
           <div

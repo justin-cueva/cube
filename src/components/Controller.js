@@ -5,7 +5,7 @@ import {
   FaArrowDown,
   FaArrowUp,
 } from "react-icons/fa";
-import "../../styles/controller/controller.css";
+import "../styles/controller.css";
 
 const buttons = [
   { view: "Front", number: 0 },
@@ -35,16 +35,64 @@ const Controller = ({ cubeDispatch, cubeState }) => {
       })}
       <div className="spin-buttons">
         <div className="horizontal-spins spin-buttons">
-          <span className="btn-arrow">
+          <span
+            className="btn-arrow"
+            onClick={() =>
+              cubeDispatch({
+                type: "SPIN_LEFT",
+                payload: {
+                  toBeSwappedOut: [0, 1, 2],
+                  rowSpun: "TOP",
+                  directionSpun: "LEFT",
+                },
+              })
+            }
+          >
             <FaArrowLeft />
           </span>
-          <span className="btn-arrow">
+          <span
+            className="btn-arrow"
+            onClick={() =>
+              cubeDispatch({
+                type: "SPIN_RIGHT",
+                payload: {
+                  toBeSwappedOut: [0, 1, 2],
+                  rowSpun: "TOP",
+                  directionSpun: "RIGHT",
+                },
+              })
+            }
+          >
             <FaArrowRight />
           </span>
-          <span className="btn-arrow">
+          <span
+            className="btn-arrow"
+            onClick={() =>
+              cubeDispatch({
+                type: "SPIN_LEFT",
+                payload: {
+                  toBeSwappedOut: [6, 7, 8],
+                  rowSpun: "BOTTOM",
+                  directionSpun: "LEFT",
+                },
+              })
+            }
+          >
             <FaArrowLeft />
           </span>
-          <span className="btn-arrow">
+          <span
+            className="btn-arrow"
+            onClick={() =>
+              cubeDispatch({
+                type: "SPIN_RIGHT",
+                payload: {
+                  toBeSwappedOut: [6, 7, 8],
+                  rowSpun: "BOTTOM",
+                  directionSpun: "RIGHT",
+                },
+              })
+            }
+          >
             <FaArrowRight />
           </span>
         </div>

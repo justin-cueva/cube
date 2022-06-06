@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import Cube from "./Cube";
-import Controller from "./controller/Controller";
+import Controller from "./Controller";
 
 import { cubeReducer, initialCubeState } from "../cubeReducer";
 

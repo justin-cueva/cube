@@ -70,3 +70,7 @@
 .btn-arrow:hover {
   transform: scale(1.2);
 }
+
+.btn-arrow:active {
+  transform: scale(1.1);
+}
