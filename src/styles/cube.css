@@ -2,12 +2,27 @@
   position: relative;
   height: 28rem;
   width: 28rem;
-  background-color: #eee;
+  /* background-color: #eee; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   text-align: center;
+}
+
+.single-cube {
+  position: relative;
+}
+
+.cube-number {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* style={{
+    position: "absolute",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+  }} */
 }
 
 /* SPIN buttons  */
@@ -32,8 +47,6 @@
 }
 .btn-view-front {
   top: 0;
-}
-.btn-view-back {
 }
 
 /* MIX buttons */
@@ -63,4 +76,25 @@
 .mix-btn--bottom-right {
   bottom: 0;
   right: 0;
+}
+
+/* COLORS */
+
+.bg-0 {
+  background-color: #f4f3ee;
+}
+.bg-1 {
+  background-color: #ff595e;
+}
+.bg-2 {
+  background-color: #ffca3a;
+}
+.bg-3 {
+  background-color: #8ac926;
+}
+.bg-4 {
+  background-color: #1982c4;
+}
+.bg-5 {
+  background-color: #6a4c93;
 }
