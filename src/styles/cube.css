@@ -2,27 +2,22 @@
   position: relative;
   height: 28rem;
   width: 28rem;
-  /* background-color: #eee; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* align-items: center; */
   justify-content: center;
   text-align: center;
 }
 
 .single-cube {
   position: relative;
+  border-radius: 2rem;
+  border: 3px solid #111;
 }
 
 .cube-number {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  /* style={{
-    position: "absolute",
-    top: "50%",
-    transform: "translate(-50%, -50%)",
-  }} */
 }
 
 /* SPIN buttons  */
@@ -79,7 +74,6 @@
 }
 
 /* COLORS */
-
 .bg-0 {
   background-color: #f4f3ee;
 }
