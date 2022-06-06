@@ -96,7 +96,20 @@ const Controller = ({ cubeDispatch, cubeState }) => {
           {/* ********** VERTICAL ARROWS BELOW ********** */}
         </div>
         <div className="vertical-spins spin-buttons">
-          <span className="btn-arrow cursor-not-allowed">
+          <span
+            className="btn-arrow cursor-pointer"
+            onClick={() => {
+              cubeDispatch({
+                type: "SPIN_UP",
+                payload: {
+                  toBeSwappedOut: [],
+                  rowSpun: "LEFT",
+                  directionSpun: "UP",
+                },
+              });
+              console.log("spin up");
+            }}
+          >
             <FaArrowUp />
           </span>
           <span className="btn-arrow cursor-not-allowed">
