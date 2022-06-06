@@ -12,11 +12,41 @@ body {
   font-family: sans-serif;
 }
 
+button {
+  cursor: pointer;
+  background-color: #fff;
+}
+
 /* *********************************** */
 
 .app {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* COLORS */
+.bg-0 {
+  background-color: #f4f3ee;
+}
+.bg-1 {
+  background-color: #ff595e;
+}
+.bg-2 {
+  background-color: #ffca3a;
+}
+.bg-3 {
+  background-color: #8ac926;
+}
+.bg-4 {
+  background-color: #1982c4;
+}
+.bg-5 {
+  background-color: #6a4c93;
 }

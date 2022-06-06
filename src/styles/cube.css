@@ -6,6 +6,7 @@
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   text-align: center;
+  /* margin: 10rem auto 0 auto; */
 }
 
 .single-cube {
@@ -18,30 +19,6 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-}
-
-/* SPIN buttons  */
-.spin-btn {
-  position: absolute;
-}
-.spin-btn.top {
-  top: -4rem;
-  left: 50%;
-}
-.spin-btn.bottom {
-  bottom: -4rem;
-  left: 50%;
-}
-.spin-btn.left {
-  left: -4rem;
-  top: 50%;
-}
-.spin-btn.right {
-  right: -4rem;
-  top: 50%;
-}
-.btn-view-front {
-  top: 0;
 }
 
 /* MIX buttons */
