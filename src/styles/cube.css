@@ -6,7 +6,7 @@
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   text-align: center;
-  margin: 10rem auto 0 auto;
+  /* margin: 10rem auto 0 auto; */
 }
 
 .single-cube {
