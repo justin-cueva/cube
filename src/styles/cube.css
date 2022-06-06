@@ -1,31 +1,13 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-/* *********************************** */
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .cube {
   position: relative;
   height: 28rem;
   width: 28rem;
   background-color: #eee;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 /* SPIN buttons  */
@@ -47,6 +29,11 @@ body {
 .spin-btn.right {
   right: -4rem;
   top: 50%;
+}
+.btn-view-front {
+  top: 0;
+}
+.btn-view-back {
 }
 
 /* MIX buttons */
