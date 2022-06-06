@@ -1,31 +1,23 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-family: sans-serif;
-}
-
-/* *********************************** */
-
-.app {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .cube {
   position: relative;
   height: 28rem;
   width: 28rem;
-  background-color: #eee;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  text-align: center;
+}
+
+.single-cube {
+  position: relative;
+  border-radius: 2rem;
+  border: 3px solid #111;
+}
+
+.cube-number {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* SPIN buttons  */
@@ -47,6 +39,9 @@ body {
 .spin-btn.right {
   right: -4rem;
   top: 50%;
+}
+.btn-view-front {
+  top: 0;
 }
 
 /* MIX buttons */
@@ -76,4 +71,24 @@ body {
 .mix-btn--bottom-right {
   bottom: 0;
   right: 0;
+}
+
+/* COLORS */
+.bg-0 {
+  background-color: #f4f3ee;
+}
+.bg-1 {
+  background-color: #ff595e;
+}
+.bg-2 {
+  background-color: #ffca3a;
+}
+.bg-3 {
+  background-color: #8ac926;
+}
+.bg-4 {
+  background-color: #1982c4;
+}
+.bg-5 {
+  background-color: #6a4c93;
 }
