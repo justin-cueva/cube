@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaArrowDown,
+  FaArrowUp,
+} from "react-icons/fa";
 import "../../styles/controller/controller.css";
 
 const buttons = [
@@ -27,6 +33,36 @@ const Controller = ({ cubeDispatch, cubeState }) => {
           </button>
         );
       })}
+      <div className="spin-buttons">
+        <div className="horizontal-spins spin-buttons">
+          <span className="btn-arrow">
+            <FaArrowLeft />
+          </span>
+          <span className="btn-arrow">
+            <FaArrowRight />
+          </span>
+          <span className="btn-arrow">
+            <FaArrowLeft />
+          </span>
+          <span className="btn-arrow">
+            <FaArrowRight />
+          </span>
+        </div>
+        <div className="vertical-spins spin-buttons">
+          <span className="btn-arrow">
+            <FaArrowUp />
+          </span>
+          <span className="btn-arrow">
+            <FaArrowUp />
+          </span>
+          <span className="btn-arrow">
+            <FaArrowDown />
+          </span>
+          <span className="btn-arrow">
+            <FaArrowDown />
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

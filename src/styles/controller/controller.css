@@ -2,16 +2,20 @@
   background-color: #f7f7f7;
   /* background-color: red; */
   border-radius: 2rem;
-  height: 95vh;
-  width: 40vw;
+  height: 100%;
+  width: 30vw;
   /* margin-left: 2.5vh; */
   margin-left: 5rem;
-  margin-top: 5rem;
-  padding: 2rem;
+  margin-top: 10rem;
+  padding: 5rem;
   max-width: 60rem;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   max-height: 72rem;
+}
+
+.controller-container h2 {
+  margin-bottom: 3rem;
 }
 
 .view-btn {
@@ -39,4 +43,30 @@
 }
 .view-btn.x-5:hover {
   background-color: #6a4c93;
+}
+
+/* SPIN BUTTONS */
+.spin-buttons {
+  width: 10rem;
+
+  /* margin-top: 5rem; */
+  margin: 2rem auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-arrow {
+  font-size: 3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease;
+}
+
+.btn-arrow:hover {
+  transform: scale(1.2);
 }
