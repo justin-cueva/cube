@@ -2,16 +2,10 @@ import React, { Fragment, useEffect, useReducer } from "react";
 
 import ViewButtons from "./ViewButtons";
 import MixButtons from "./MixButtons";
-import { cubeReducer, initialCubeState } from "../cubeReducer";
+// import { cubeReducer, initialCubeState } from "../cubeReducer";
 import "../styles/cube.css";
 
-const Cube = () => {
-  const [cubeState, cubeDispatch] = useReducer(cubeReducer, initialCubeState);
-
-  useEffect(() => {
-    console.log(cubeState.cube[cubeState.currentSide]);
-  }, []);
-
+const Cube = ({ cubeDispatch, cubeState }) => {
   return (
     <div className="cube">
       <ViewButtons cubeDispatch={cubeDispatch} />

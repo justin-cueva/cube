@@ -1,11 +1,15 @@
+import React, { useReducer } from "react";
 import Cube from "./Cube";
 import Controller from "./controller/Controller";
 
+import { cubeReducer, initialCubeState } from "../cubeReducer";
+
 const App = () => {
+  const [cubeState, cubeDispatch] = useReducer(cubeReducer, initialCubeState);
   return (
     <div className="app">
-      <Controller />
-      <Cube />
+      <Controller cubeDispatch={cubeDispatch} cubeState={cubeState} />
+      <Cube cubeDispatch={cubeDispatch} cubeState={cubeState} />
     </div>
   );
 };
