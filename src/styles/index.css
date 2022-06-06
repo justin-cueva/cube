@@ -21,10 +21,14 @@ button {
 
 .app {
   min-height: 100vh;
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5rem; */
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 /* COLORS */

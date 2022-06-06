@@ -1,12 +1,7 @@
 .controller-container {
   background-color: #f7f7f7;
-  /* background-color: red; */
   border-radius: 2rem;
   height: 100%;
-  /* width: 30vw; */
-  /* margin-left: 2.5vh; */
-  /* margin-left: 5rem;
-  margin-top: 10rem; */
   padding: 5rem;
   max-width: 60rem;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
@@ -16,6 +11,7 @@
 
 .controller-container h2 {
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .view-btn {
@@ -60,7 +56,6 @@
 
 .btn-arrow {
   font-size: 3rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
