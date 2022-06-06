@@ -7,12 +7,12 @@ const Controller = () => {
       <h2>Controller</h2>
       <div>x</div>
       <span>Viewing Front</span>
-      <button>Front</button>
-      <button>Back</button>
-      <button>Left</button>
-      <button>Right</button>
-      <button>Top</button>
-      <button>Bottom</button>
+      <button className="view-btn x-0">Front</button>
+      <button className="view-btn x-1 ">Back</button>
+      <button className="view-btn x-2">Left</button>
+      <button className="view-btn x-3">Right</button>
+      <button className="view-btn x-4">Top</button>
+      <button className="view-btn x-5">Bottom</button>
     </div>
   );
 };

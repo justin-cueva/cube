@@ -1,6 +1,6 @@
 .controller-container {
-  /* background-color: #f7f7f7; */
-  background-color: red;
+  background-color: #f7f7f7;
+  /* background-color: red; */
   border-radius: 2rem;
   height: 95vh;
   width: 40vw;
@@ -13,4 +13,32 @@
     rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
     rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
   max-height: 72rem;
+}
+
+.view-btn {
+  background-color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  border: 2px solid #000;
+  transition: all 300ms ease;
+}
+
+.view-btn.x-0:hover {
+  background-color: #f4f3ee;
+}
+.view-btn.x-1:hover {
+  background-color: #ff595e;
+}
+.view-btn.x-2:hover {
+  background-color: #ffca3a;
+}
+.view-btn.x-3:hover {
+  background-color: #8ac926;
+}
+.view-btn.x-4:hover {
+  background-color: #1982c4;
+}
+.view-btn.x-5:hover {
+  background-color: #6a4c93;
 }
