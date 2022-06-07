@@ -46,8 +46,12 @@ const horizontalButtons = [
 const Controller = ({ cubeDispatch, cubeState }) => {
   const viewingTopOrBottom =
     cubeState.currentSide === 1 || cubeState.currentSide === 3;
-
   const viewingTopOrBottomClass = viewingTopOrBottom
+    ? "cursor-not-allowed"
+    : "cursor-pointer";
+
+  const notViewingFront = cubeState.currentSide !== 0;
+  const notViewingFrontClass = notViewingFront
     ? "cursor-not-allowed"
     : "cursor-pointer";
 
@@ -97,8 +101,9 @@ const Controller = ({ cubeDispatch, cubeState }) => {
         </div>
         <div className="vertical-spins spin-buttons">
           <span
-            className="btn-arrow cursor-pointer"
+            className={`btn-arrow ${notViewingFrontClass}`}
             onClick={() => {
+              if (notViewingFront) return;
               cubeDispatch({
                 type: "SPIN_UP",
                 payload: {
