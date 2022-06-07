@@ -92,6 +92,62 @@ export const cubeReducer = (state = initialCubeState, action) => {
     if (directionSpun === "RIGHT") return [...topCol3, ...topCol2, ...topCol1];
   };
   switch (action.type) {
+    case "SPIN_DOWN":
+      if (action.payload.rowSpun === "LEFT") {
+        const newCurrentSideRotateLeftDown = state.cube[state.currentSide].map(
+          (number, index) => {
+            if (index === 0 || index === 3 || index === 6)
+              return state.cube[state.top][index];
+            else return number;
+          }
+        );
+        const newTopSideRotateLeftDown = state.cube[state.top].map(
+          (number, index) => {
+            const backReversed = backCol3.reverse();
+
+            if (index === 0) return backReversed[0];
+            else if (index === 3) return backReversed[1];
+            else if (index === 6) return backReversed[2];
+            else return number;
+          }
+        );
+        const newBackSideRotateLeftDown = state.cube[state.back].map(
+          (number, index) => {
+            const topReversed = bottomCol1.reverse();
+
+            if (index === 2) return topReversed[0];
+            else if (index === 5) return topReversed[1];
+            else if (index === 8) return topReversed[2];
+            else return number;
+          }
+        );
+        const newBottomSideRotateLeftDown = state.cube[state.bottom].map(
+          (number, index) => {
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            if (index === 0 || index === 3 || index === 6)
+              return state.cube[state.currentSide][index];
+            else return number;
+          }
+        );
+        const newLeftSideRotateLeftDown = [
+          ...leftCol1.reverse(),
+          ...leftCol2.reverse(),
+          ...leftCol3.reverse(),
+        ];
+        return {
+          ...state,
+          cube: {
+            ...state.cube,
+            [state.currentSide]: newCurrentSideRotateLeftDown,
+            [state.top]: newTopSideRotateLeftDown,
+            [state.back]: newBackSideRotateLeftDown,
+            [state.bottom]: newBottomSideRotateLeftDown,
+            [state.left]: newLeftSideRotateLeftDown,
+          },
+        };
+      }
+      console.log("down arrow was clicked");
+      return state;
     case "SPIN_UP":
       if (action.payload.rowSpun === "LEFT") {
         const newCurrentSideRotateLeftUp = state.cube[state.currentSide].map(

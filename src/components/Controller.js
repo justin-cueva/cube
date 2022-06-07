@@ -133,9 +133,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
                 <span
                   key={index}
                   className={`btn-arrow ${notViewingFrontClass} ${
-                    index !== 0 &&
-                    index !== 1 &&
-                    "cursor-not-allowed opacity-15"
+                    index === 3 && "cursor-not-allowed opacity-15"
                   }`}
                   onClick={() => {
                     if (notViewingFront) return;
@@ -150,31 +148,6 @@ const Controller = ({ cubeDispatch, cubeState }) => {
               );
             }
           )}
-          {/* <span
-            className={`btn-arrow ${notViewingFrontClass}`}
-            onClick={() => {
-              if (notViewingFront) return;
-              cubeDispatch({
-                type: "SPIN_UP",
-                payload: {
-                  toBeSwappedOut: [],
-                  rowSpun: "LEFT",
-                  directionSpun: "UP",
-                },
-              });
-            }}
-          >
-            <FaArrowUp />
-          </span>
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowUp />
-          </span>
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowDown />
-          </span>
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowDown />
-          </span> */}
         </div>
       </div>
     </div>
