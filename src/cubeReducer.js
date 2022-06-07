@@ -2,7 +2,7 @@ export const initialCubeState = {
   cube: {
     0: [0, 0, 0, 0, 0, 0, 0, 0, 0],
     1: [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    2: [2, 2, 2, 2, 2, 2, 2, 2, 2],
+    2: [0, 0, 0, 2, 2, 5, 2, 2, 2],
     3: [3, 3, 3, 3, 3, 3, 3, 3, 3],
     4: [4, 4, 4, 4, 4, 4, 4, 4, 4],
     5: [5, 5, 5, 5, 5, 5, 5, 5, 5],
@@ -16,6 +16,18 @@ export const initialCubeState = {
 };
 
 export const cubeReducer = (state = initialCubeState, action) => {
+  const leftCol1 = [...state.cube[state.left]].filter((item, index) => {
+    if (index === 0 || index === 3 || index === 6) return true;
+    else return false;
+  });
+  const leftCol2 = [...state.cube[state.left]].filter((item, index) => {
+    if (index === 1 || index === 4 || index === 7) return true;
+    else return false;
+  });
+  const leftCol3 = [...state.cube[state.left]].filter((item, index) => {
+    if (index === 2 || index === 5 || index === 8) return true;
+    else return false;
+  });
   const bottomCol1 = [...state.cube[state.bottom]].filter((item, index) => {
     if (index === 0 || index === 3 || index === 6) return true;
     else return false;
@@ -99,6 +111,7 @@ export const cubeReducer = (state = initialCubeState, action) => {
           else return number;
         }
       );
+      const newLeftSideRotateLeftUp = [...leftCol3, ...leftCol2, ...leftCol1];
       return {
         ...state,
         cube: {
@@ -107,6 +120,7 @@ export const cubeReducer = (state = initialCubeState, action) => {
           [state.top]: newTopSideRotateLeftUp,
           [state.back]: newBackSideRotateLeftUp,
           [state.bottom]: newBottomSideRotateLeftUp,
+          [state.left]: newLeftSideRotateLeftUp,
         },
       };
     case "SPIN_LEFT":
