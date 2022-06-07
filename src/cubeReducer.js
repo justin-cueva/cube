@@ -77,6 +77,7 @@ export const cubeReducer = (state = initialCubeState, action) => {
   };
   switch (action.type) {
     case "SPIN_UP":
+      if (action.payload.rowSpun === "RIGHT") return state;
       const newCurrentSideRotateLeftUp = state.cube[state.currentSide].map(
         (number, index) => {
           if (index === 0 || index === 3 || index === 6)

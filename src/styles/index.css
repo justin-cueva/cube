@@ -23,12 +23,16 @@ button {
   min-height: 100vh;
 }
 
-.cursor-not-allowed {
-  cursor: not-allowed;
-}
-
 .cursor-pointer {
   cursor: pointer;
+}
+
+.opacity-15 {
+  opacity: 0.15;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
 }
 
 /* COLORS */
