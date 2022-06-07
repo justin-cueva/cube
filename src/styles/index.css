@@ -37,7 +37,7 @@ button {
 
 /* COLORS */
 .bg-0 {
-  background-color: #f4f3ee;
+  background-color: #ccc !important;
 }
 .bg-1 {
   background-color: #ff595e;
