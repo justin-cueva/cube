@@ -1,9 +1,9 @@
 export const initialCubeState = {
   cube: {
-    0: [5, 0, 0, 0, 0, 0, 0, 0, 0],
-    1: [3, 3, 3, 1, 1, 1, 1, 1, 1],
+    0: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    1: [1, 1, 1, 1, 1, 1, 1, 1, 1],
     2: [2, 2, 2, 2, 2, 2, 2, 2, 2],
-    3: [1, 1, 1, 3, 3, 3, 3, 3, 3],
+    3: [3, 3, 3, 3, 3, 3, 3, 3, 3],
     4: [4, 4, 4, 4, 4, 4, 4, 4, 4],
     5: [5, 5, 5, 5, 5, 5, 5, 5, 5],
   },
@@ -37,6 +37,10 @@ export const cubeReducer = (state = initialCubeState, action) => {
     else return false;
   });
   const topCol3 = [...state.cube[state.top]].filter((item, index) => {
+    if (index === 2 || index === 5 || index === 8) return true;
+    else return false;
+  });
+  const backCol3 = [...state.cube[state.back]].filter((number, index) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
   });
@@ -75,12 +79,34 @@ export const cubeReducer = (state = initialCubeState, action) => {
           else return number;
         }
       );
+      const newBackSideRotateLeftUp = state.cube[state.back].map(
+        (number, index) => {
+          const topReversed = topCol1.reverse();
+
+          if (index === 2) return topReversed[0];
+          else if (index === 5) return topReversed[1];
+          else if (index === 8) return topReversed[2];
+          else return number;
+        }
+      );
+      const newBottomSideRotateLeftUp = state.cube[state.bottom].map(
+        (number, index) => {
+          ///////////////////////////////////////////////////////////////////////////////////////////////////
+          const backReversed = backCol3.reverse();
+          if (index === 0) return backReversed[0];
+          else if (index === 3) return backReversed[1];
+          else if (index === 6) return backReversed[2];
+          else return number;
+        }
+      );
       return {
         ...state,
         cube: {
           ...state.cube,
           [state.currentSide]: newCurrentSideRotateLeftUp,
           [state.top]: newTopSideRotateLeftUp,
+          [state.back]: newBackSideRotateLeftUp,
+          [state.bottom]: newBottomSideRotateLeftUp,
         },
       };
     case "SPIN_LEFT":
