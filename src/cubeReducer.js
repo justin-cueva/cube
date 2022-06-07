@@ -2,7 +2,7 @@ export const initialCubeState = {
   cube: {
     0: [0, 0, 0, 0, 0, 0, 0, 0, 0],
     1: [1, 1, 1, 1, 1, 1, 1, 1, 1],
-    2: [0, 0, 0, 2, 2, 5, 2, 2, 2],
+    2: [2, 2, 2, 2, 2, 2, 2, 2, 2],
     3: [3, 3, 3, 3, 3, 3, 3, 3, 3],
     4: [4, 4, 4, 4, 4, 4, 4, 4, 4],
     5: [5, 5, 5, 5, 5, 5, 5, 5, 5],
@@ -16,6 +16,18 @@ export const initialCubeState = {
 };
 
 export const cubeReducer = (state = initialCubeState, action) => {
+  const rightCol1 = [...state.cube[state.right]].filter((_, index) => {
+    if (index === 0 || index === 3 || index === 6) return true;
+    else return false;
+  });
+  const rightCol2 = [...state.cube[state.right]].filter((_, index) => {
+    if (index === 1 || index === 4 || index === 7) return true;
+    else return false;
+  });
+  const rightCol3 = [...state.cube[state.right]].filter((_, index) => {
+    if (index === 2 || index === 5 || index === 8) return true;
+    else return false;
+  });
   const leftCol1 = [...state.cube[state.left]].filter((item, index) => {
     if (index === 0 || index === 3 || index === 6) return true;
     else return false;
@@ -52,6 +64,10 @@ export const cubeReducer = (state = initialCubeState, action) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
   });
+  const backCol1 = [...state.cube[state.back]].filter((number, index) => {
+    if (index === 0 || index === 3 || index === 6) return true;
+    else return false;
+  });
   const backCol3 = [...state.cube[state.back]].filter((number, index) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
@@ -77,53 +93,109 @@ export const cubeReducer = (state = initialCubeState, action) => {
   };
   switch (action.type) {
     case "SPIN_UP":
-      if (action.payload.rowSpun === "RIGHT") return state;
-      const newCurrentSideRotateLeftUp = state.cube[state.currentSide].map(
-        (number, index) => {
-          if (index === 0 || index === 3 || index === 6)
-            return state.cube[state.bottom][index];
-          else return number;
-        }
-      );
-      const newTopSideRotateLeftUp = state.cube[state.top].map(
-        (number, index) => {
-          if (index === 0 || index === 3 || index === 6)
-            return state.cube[state.currentSide][index];
-          else return number;
-        }
-      );
-      const newBackSideRotateLeftUp = state.cube[state.back].map(
-        (number, index) => {
-          const topReversed = topCol1.reverse();
+      if (action.payload.rowSpun === "LEFT") {
+        const newCurrentSideRotateLeftUp = state.cube[state.currentSide].map(
+          (number, index) => {
+            if (index === 0 || index === 3 || index === 6)
+              return state.cube[state.bottom][index];
+            else return number;
+          }
+        );
+        const newTopSideRotateLeftUp = state.cube[state.top].map(
+          (number, index) => {
+            if (index === 0 || index === 3 || index === 6)
+              return state.cube[state.currentSide][index];
+            else return number;
+          }
+        );
+        const newBackSideRotateLeftUp = state.cube[state.back].map(
+          (number, index) => {
+            const topReversed = topCol1.reverse();
 
-          if (index === 2) return topReversed[0];
-          else if (index === 5) return topReversed[1];
-          else if (index === 8) return topReversed[2];
-          else return number;
-        }
-      );
-      const newBottomSideRotateLeftUp = state.cube[state.bottom].map(
-        (number, index) => {
-          ///////////////////////////////////////////////////////////////////////////////////////////////////
-          const backReversed = backCol3.reverse();
-          if (index === 0) return backReversed[0];
-          else if (index === 3) return backReversed[1];
-          else if (index === 6) return backReversed[2];
-          else return number;
-        }
-      );
-      const newLeftSideRotateLeftUp = [...leftCol3, ...leftCol2, ...leftCol1];
-      return {
-        ...state,
-        cube: {
-          ...state.cube,
-          [state.currentSide]: newCurrentSideRotateLeftUp,
-          [state.top]: newTopSideRotateLeftUp,
-          [state.back]: newBackSideRotateLeftUp,
-          [state.bottom]: newBottomSideRotateLeftUp,
-          [state.left]: newLeftSideRotateLeftUp,
-        },
-      };
+            if (index === 2) return topReversed[0];
+            else if (index === 5) return topReversed[1];
+            else if (index === 8) return topReversed[2];
+            else return number;
+          }
+        );
+        const newBottomSideRotateLeftUp = state.cube[state.bottom].map(
+          (number, index) => {
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            const backReversed = backCol3.reverse();
+            if (index === 0) return backReversed[0];
+            else if (index === 3) return backReversed[1];
+            else if (index === 6) return backReversed[2];
+            else return number;
+          }
+        );
+        const newLeftSideRotateLeftUp = [...leftCol3, ...leftCol2, ...leftCol1];
+        return {
+          ...state,
+          cube: {
+            ...state.cube,
+            [state.currentSide]: newCurrentSideRotateLeftUp,
+            [state.top]: newTopSideRotateLeftUp,
+            [state.back]: newBackSideRotateLeftUp,
+            [state.bottom]: newBottomSideRotateLeftUp,
+            [state.left]: newLeftSideRotateLeftUp,
+          },
+        };
+      }
+      if (action.payload.rowSpun === "RIGHT") {
+        const newCurrentSideRotateRightUp = state.cube[state.currentSide].map(
+          (number, index) => {
+            if (index === 2 || index === 5 || index === 8)
+              return state.cube[state.bottom][index];
+            else return number;
+          }
+        );
+        const newTopSideRotateRightUp = state.cube[state.top].map(
+          (number, index) => {
+            if (index === 2 || index === 5 || index === 8)
+              return state.cube[state.currentSide][index];
+            else return number;
+          }
+        );
+        const newBackSideRotateRightUp = state.cube[state.back].map(
+          (number, index) => {
+            const topReversed = topCol3.reverse();
+
+            if (index === 0) return topReversed[0];
+            else if (index === 3) return topReversed[1];
+            else if (index === 6) return topReversed[2];
+            else return number;
+          }
+        );
+        const newBottomSideRotateRightUp = state.cube[state.bottom].map(
+          (number, index) => {
+            ///////////////////////////////////////////////////////////////////////////////////////////////////
+            const backReversed = backCol1.reverse();
+            if (index === 2) return backReversed[0];
+            else if (index === 5) return backReversed[1];
+            else if (index === 8) return backReversed[2];
+            else return number;
+          }
+        );
+        const newRightSideRotateRightUp = [
+          ...rightCol1.reverse(),
+          ...rightCol2.reverse(),
+          ...rightCol3.reverse(),
+        ];
+        return {
+          ...state,
+          cube: {
+            ...state.cube,
+            [state.currentSide]: newCurrentSideRotateRightUp,
+            [state.top]: newTopSideRotateRightUp,
+            [state.back]: newBackSideRotateRightUp,
+            [state.bottom]: newBottomSideRotateRightUp,
+            [state.right]: newRightSideRotateRightUp,
+          },
+        };
+      }
+
+      return state;
+
     case "SPIN_LEFT":
       const newCurrentSideRotateTopOrBottomToLeft = [
         ...state.cube[state.currentSide],

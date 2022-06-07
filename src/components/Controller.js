@@ -133,7 +133,9 @@ const Controller = ({ cubeDispatch, cubeState }) => {
                 <span
                   key={index}
                   className={`btn-arrow ${notViewingFrontClass} ${
-                    index !== 0 && "cursor-not-allowed opacity-15"
+                    index !== 0 &&
+                    index !== 1 &&
+                    "cursor-not-allowed opacity-15"
                   }`}
                   onClick={() => {
                     if (notViewingFront) return;
