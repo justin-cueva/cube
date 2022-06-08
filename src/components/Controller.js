@@ -111,7 +111,10 @@ const Controller = ({ cubeDispatch, cubeState }) => {
       </div>
       <div className="icon-btn-container">
         <div>
-          <span className="btn-reset cursor-pointer">
+          <span
+            className="btn-reset cursor-pointer"
+            onClick={() => cubeDispatch({ type: "RESET" })}
+          >
             <GrPowerReset />
           </span>
           <span className="btn-shuffle cursor-pointer">

@@ -22,6 +22,7 @@
   border-radius: 8px;
   border: none;
   font-size: 1.8rem;
+  color: #000;
   border: 2px solid #000;
   transition: all 300ms ease;
 }
@@ -69,6 +70,7 @@
 .btn-reset,
 .btn-shuffle {
   font-size: 3rem;
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
