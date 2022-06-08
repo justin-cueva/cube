@@ -14,7 +14,7 @@ export const initialCubeState = {
   right: 4,
   back: 5,
   score: 0,
-  highScore: 9999,
+  highScore: 9999.9,
   gameIsOn: false,
 };
 
@@ -108,6 +108,8 @@ export const cubeReducer = (state = initialCubeState, action) => {
     });
   };
   switch (action.type) {
+    case "RESET_SCORE":
+      return { ...state, score: 0, gameIsOn: false };
     case "SET_GAME_IS_ON":
       return { ...state, gameIsOn: action.payload };
     case "ADD_TO_SCORE":

@@ -5,7 +5,9 @@ import { ImShuffle } from "react-icons/im";
 const ShuffleReset = ({ cubeDispatch, spinBtns }) => {
   const shuffleCube = () => {
     cubeDispatch({ type: "VIEW_FRONT" });
+    cubeDispatch({ type: "RESET_SCORE" });
     cubeDispatch({ type: "RESET" });
+    cubeDispatch({ type: "SET_GAME_IS_ON", payload: true });
     const allSpinActions = spinBtns.map(
       ({ colSpun, rowSpun, directionSpun, toBeSwappedOut }) => {
         if (colSpun)
@@ -30,7 +32,15 @@ const ShuffleReset = ({ cubeDispatch, spinBtns }) => {
     <div>
       <span
         className="btn-reset cursor-pointer"
-        onClick={() => cubeDispatch({ type: "RESET" })}
+        onClick={() => {
+          cubeDispatch({ type: "RESET" });
+
+          cubeDispatch({ type: "SET_GAME_IS_ON", payload: false });
+
+          setTimeout(() => {
+            cubeDispatch({ type: "RESET_SCORE" });
+          }, 101);
+        }}
       >
         <GrPowerReset />
       </span>

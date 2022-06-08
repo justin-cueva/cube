@@ -10,16 +10,8 @@ const ScoreContainer = ({ cubeDispatch, cubeState }) => {
 
   return (
     <div className="score-container">
-      <span
-        onClick={() => cubeDispatch({ type: "SET_GAME_IS_ON", payload: true })}
-      >
-        Score: {cubeState.score.toFixed(1)}
-      </span>
-      <span
-        onClick={() => cubeDispatch({ type: "SET_GAME_IS_ON", payload: false })}
-      >
-        High Score: {(12.9).toFixed(1)}
-      </span>
+      <span>Score: {cubeState.score.toFixed(1)}</span>
+      <span>High Score: {cubeState.highScore.toFixed(1)}</span>
     </div>
   );
 };
