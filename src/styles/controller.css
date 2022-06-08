@@ -9,7 +9,7 @@
   max-height: 72rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3.2rem;
 }
 
 .controller-container h2 {
@@ -48,7 +48,6 @@
 /* SPIN BUTTONS */
 .spin-buttons {
   width: 10rem;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;

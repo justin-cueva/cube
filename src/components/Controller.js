@@ -5,6 +5,8 @@ import {
   FaArrowDown,
   FaArrowUp,
 } from "react-icons/fa";
+import { GrPowerReset } from "react-icons/gr";
+import { ImShuffle } from "react-icons/im";
 import "../styles/controller.css";
 
 const viewButtons = [
@@ -106,7 +108,31 @@ const Controller = ({ cubeDispatch, cubeState }) => {
           );
         })}
       </div>
-      <div className="spin-buttons">
+      <div
+        className="icon-btn-container"
+        style={{ display: "flex", justifyContent: "center", gap: "3rem" }}
+      >
+        <div className="reset-and-shuffle-buttons">
+          <span
+            className="btn-arrow"
+            style={{
+              marginBottom: "2rem",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            <GrPowerReset />
+          </span>
+          <span
+            className="btn-arrow"
+            style={{
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            <ImShuffle />
+          </span>
+        </div>
         {/* ********** HORIZONTAL ARROWS ********** */}
         <div className="horizontal-spins spin-buttons">
           {horizontalButtons.map(
