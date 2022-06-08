@@ -115,7 +115,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
   return (
     <div className="controller-container">
       <h2>Controller</h2>
-      <div>
+      <div className="view-btn-container">
         {/* ********** VIEW BUTTONS ********** */}
         {viewButtons.map(({ view, number }, index) => {
           const active = cubeState.currentSide === number ? `bg-${number}` : "";
