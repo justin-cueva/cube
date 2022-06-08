@@ -88,6 +88,30 @@ const Controller = ({ cubeDispatch, cubeState }) => {
     ? "cursor-pointer"
     : "cursor-not-allowed opacity-15";
 
+  const shuffleCube = () => {
+    cubeDispatch({ type: "VIEW_FRONT" });
+    cubeDispatch({ type: "RESET" });
+    const allSpinActions = [...horizontalButtons, ...verticalButtons].map(
+      ({ colSpun, rowSpun, directionSpun, toBeSwappedOut }) => {
+        if (colSpun)
+          return {
+            type: `SPIN_${directionSpun}`,
+            payload: { colSpun, directionSpun, toBeSwappedOut },
+          };
+        if (rowSpun)
+          return {
+            type: `SPIN_${directionSpun}`,
+            payload: { rowSpun, directionSpun, toBeSwappedOut },
+          };
+      }
+    );
+
+    [1, 2, 3, 4].forEach(() => {
+      const randomNumber = Math.floor(Math.random() * 8);
+      cubeDispatch(allSpinActions[randomNumber]);
+    });
+  };
+
   return (
     <div className="controller-container">
       <h2>Controller</h2>
@@ -117,7 +141,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
           >
             <GrPowerReset />
           </span>
-          <span className="btn-shuffle cursor-pointer">
+          <span className="btn-shuffle cursor-pointer" onClick={shuffleCube}>
             <ImShuffle />
           </span>
         </div>
