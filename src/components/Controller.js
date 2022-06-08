@@ -47,25 +47,25 @@ const verticalButtons = [
   {
     icon: <FaArrowUp />,
     directionSpun: "UP",
-    rowSpun: "LEFT",
+    colSpun: "LEFT",
     toBeSwappedOut: [],
   },
   {
     icon: <FaArrowUp />,
     directionSpun: "UP",
-    rowSpun: "RIGHT",
+    colSpun: "RIGHT",
     toBeSwappedOut: [],
   },
   {
     icon: <FaArrowDown />,
     directionSpun: "DOWN",
-    rowSpun: "LEFT",
+    colSpun: "LEFT",
     toBeSwappedOut: [],
   },
   {
     icon: <FaArrowDown />,
     directionSpun: "DOWN",
-    rowSpun: "RIGHT",
+    colSpun: "RIGHT",
     toBeSwappedOut: [],
   },
 ];
@@ -135,7 +135,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
         </div>
         <div className="vertical-spins spin-buttons">
           {verticalButtons.map(
-            ({ icon, directionSpun, rowSpun, toBeSwappedOut }, index) => {
+            ({ icon, directionSpun, colSpun, toBeSwappedOut }, index) => {
               return (
                 <span
                   key={index}
@@ -146,7 +146,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
                     if (notViewingFront) return;
                     cubeDispatch({
                       type: `SPIN_${directionSpun}`,
-                      payload: { toBeSwappedOut, rowSpun, directionSpun },
+                      payload: { toBeSwappedOut, colSpun, directionSpun },
                     });
                   }}
                 >
