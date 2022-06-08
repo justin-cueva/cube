@@ -33,12 +33,16 @@ const verticalButtons = [
   },
 ];
 
-const VerticalArrows = ({
-  viewingFrontBottomOrTopClass,
-  viewingFrontBottomOrTop,
-  cubeDispatch,
-  setSpinBtns,
-}) => {
+const VerticalArrows = ({ cubeDispatch, setSpinBtns, cubeState }) => {
+  const viewingFrontBottomOrTop =
+    cubeState.currentSide === 0 ||
+    cubeState.currentSide === 1 ||
+    cubeState.currentSide === 3;
+
+  const viewingFrontBottomOrTopClass = viewingFrontBottomOrTop
+    ? "cursor-pointer"
+    : "cursor-not-allowed opacity-15";
+
   useEffect(
     () =>
       setSpinBtns((prevState) => {

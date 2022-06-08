@@ -33,12 +33,13 @@ const horizontalButtons = [
   },
 ];
 
-const HorizontalArrows = ({
-  viewingTopOrBottomClass,
-  viewingTopOrBottom,
-  cubeDispatch,
-  setSpinBtns,
-}) => {
+const HorizontalArrows = ({ cubeState, cubeDispatch, setSpinBtns }) => {
+  const viewingTopOrBottom =
+    cubeState.currentSide === 1 || cubeState.currentSide === 3;
+  const viewingTopOrBottomClass = viewingTopOrBottom
+    ? "cursor-not-allowed opacity-15"
+    : "cursor-pointer";
+
   useEffect(() => {
     setSpinBtns((prevState) => {
       return [...prevState, ...horizontalButtons];
