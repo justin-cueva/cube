@@ -77,7 +77,10 @@ const Controller = ({ cubeDispatch, cubeState }) => {
     ? "cursor-not-allowed opacity-15"
     : "cursor-pointer";
 
-  const notViewingFront = cubeState.currentSide !== 0;
+  const notViewingFront =
+    cubeState.currentSide !== 0 &&
+    cubeState.currentSide !== 1 &&
+    cubeState.currentSide !== 3;
   const notViewingFrontClass = notViewingFront
     ? "cursor-not-allowed opacity-15"
     : "cursor-pointer";
