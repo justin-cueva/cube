@@ -5,6 +5,8 @@ import {
   FaArrowDown,
   FaArrowUp,
 } from "react-icons/fa";
+import { GrPowerReset } from "react-icons/gr";
+import { ImShuffle } from "react-icons/im";
 import "../styles/controller.css";
 
 const viewButtons = [
@@ -86,10 +88,35 @@ const Controller = ({ cubeDispatch, cubeState }) => {
     ? "cursor-pointer"
     : "cursor-not-allowed opacity-15";
 
+  const shuffleCube = () => {
+    cubeDispatch({ type: "VIEW_FRONT" });
+    cubeDispatch({ type: "RESET" });
+    const allSpinActions = [...horizontalButtons, ...verticalButtons].map(
+      ({ colSpun, rowSpun, directionSpun, toBeSwappedOut }) => {
+        if (colSpun)
+          return {
+            type: `SPIN_${directionSpun}`,
+            payload: { colSpun, directionSpun, toBeSwappedOut },
+          };
+        if (rowSpun)
+          return {
+            type: `SPIN_${directionSpun}`,
+            payload: { rowSpun, directionSpun, toBeSwappedOut },
+          };
+      }
+    );
+
+    [1, 2, 3, 4].forEach(() => {
+      const randomNumber = Math.floor(Math.random() * 8);
+      cubeDispatch(allSpinActions[randomNumber]);
+    });
+  };
+
   return (
     <div className="controller-container">
       <h2>Controller</h2>
       <div>
+        {/* ********** VIEW BUTTONS ********** */}
         {viewButtons.map(({ view, number }, index) => {
           const active = cubeState.currentSide === number ? `bg-${number}` : "";
           return (
@@ -106,7 +133,18 @@ const Controller = ({ cubeDispatch, cubeState }) => {
           );
         })}
       </div>
-      <div className="spin-buttons">
+      <div className="icon-btn-container">
+        <div>
+          <span
+            className="btn-reset cursor-pointer"
+            onClick={() => cubeDispatch({ type: "RESET" })}
+          >
+            <GrPowerReset />
+          </span>
+          <span className="btn-shuffle cursor-pointer" onClick={shuffleCube}>
+            <ImShuffle />
+          </span>
+        </div>
         {/* ********** HORIZONTAL ARROWS ********** */}
         <div className="horizontal-spins spin-buttons">
           {horizontalButtons.map(

@@ -7,15 +7,7 @@ const Cube = ({ cubeState }) => {
     <div className="cube">
       {cubeState.cube[cubeState.currentSide].map((num, index) => {
         return (
-          <div
-            className={`bg-${num} single-cube`}
-            style={{
-              zIndex: "10",
-              display: "block",
-              fontSize: "1.8rem",
-            }}
-            key={index}
-          >
+          <div className={`bg-${num} single-cube`} key={index}>
             <span className="cube-number">{num}</span>
           </div>
         );

@@ -500,6 +500,8 @@ export const cubeReducer = (state = initialCubeState, action) => {
         right: 2,
         back: 0,
       };
+    case "RESET":
+      return { ...state, cube: initialCubeState.cube };
     default:
       return state;
   }
