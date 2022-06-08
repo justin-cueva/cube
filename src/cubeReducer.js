@@ -36,39 +36,39 @@ export const cubeReducer = (state = initialCubeState, action) => {
     if (index === 1 || index === 4 || index === 7) return true;
     else return false;
   });
-  const leftCol3 = [...state.cube[state.left]].filter((item, index) => {
+  const leftCol3 = [...state.cube[state.left]].filter((_, index) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
   });
-  const bottomCol1 = [...state.cube[state.bottom]].filter((item, index) => {
+  const bottomCol1 = [...state.cube[state.bottom]].filter((_, index) => {
     if (index === 0 || index === 3 || index === 6) return true;
     else return false;
   });
-  const bottomCol2 = [...state.cube[state.bottom]].filter((item, index) => {
+  const bottomCol2 = [...state.cube[state.bottom]].filter((_, index) => {
     if (index === 1 || index === 4 || index === 7) return true;
     else return false;
   });
-  const bottomCol3 = [...state.cube[state.bottom]].filter((item, index) => {
+  const bottomCol3 = [...state.cube[state.bottom]].filter((_, index) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
   });
-  const topCol1 = [...state.cube[state.top]].filter((item, index) => {
+  const topCol1 = [...state.cube[state.top]].filter((_, index) => {
     if (index === 0 || index === 3 || index === 6) return true;
     else return false;
   });
-  const topCol2 = [...state.cube[state.top]].filter((item, index) => {
+  const topCol2 = [...state.cube[state.top]].filter((_, index) => {
     if (index === 1 || index === 4 || index === 7) return true;
     else return false;
   });
-  const topCol3 = [...state.cube[state.top]].filter((item, index) => {
+  const topCol3 = [...state.cube[state.top]].filter((_, index) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
   });
-  const backCol1 = [...state.cube[state.back]].filter((number, index) => {
+  const backCol1 = [...state.cube[state.back]].filter((_, index) => {
     if (index === 0 || index === 3 || index === 6) return true;
     else return false;
   });
-  const backCol3 = [...state.cube[state.back]].filter((number, index) => {
+  const backCol3 = [...state.cube[state.back]].filter((_, index) => {
     if (index === 2 || index === 5 || index === 8) return true;
     else return false;
   });
@@ -106,7 +106,6 @@ export const cubeReducer = (state = initialCubeState, action) => {
   };
   switch (action.type) {
     case "SPIN_DOWN":
-      // COL_SPUN
       if (action.payload.colSpun === "LEFT") {
         const newCurrentSideRotateLeftDown = state.cube[0].map(
           (number, index) => {
@@ -154,7 +153,6 @@ export const cubeReducer = (state = initialCubeState, action) => {
           },
         };
       }
-      // COL_SPUN
       if (action.payload.colSpun === "RIGHT") {
         const newCurrentSideRotateLeftDown = state.cube[0].map(
           (number, index) => {
@@ -204,7 +202,6 @@ export const cubeReducer = (state = initialCubeState, action) => {
       }
       return state;
     case "SPIN_UP":
-      // COL_SPUN
       if (action.payload.colSpun === "LEFT") {
         const newCurrentSideRotateLeftDown = state.cube[0].map(
           (number, index) => {
@@ -252,7 +249,6 @@ export const cubeReducer = (state = initialCubeState, action) => {
           },
         };
       }
-      // COL_SPUN
       if (action.payload.colSpun === "RIGHT") {
         const newCurrentSideRotateLeftDown = state.cube[0].map(
           (number, index) => {

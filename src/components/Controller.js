@@ -77,13 +77,14 @@ const Controller = ({ cubeDispatch, cubeState }) => {
     ? "cursor-not-allowed opacity-15"
     : "cursor-pointer";
 
-  const notViewingFront =
-    cubeState.currentSide !== 0 &&
-    cubeState.currentSide !== 1 &&
-    cubeState.currentSide !== 3;
-  const notViewingFrontClass = notViewingFront
-    ? "cursor-not-allowed opacity-15"
-    : "cursor-pointer";
+  const viewingFrontBottomOrTop =
+    cubeState.currentSide === 0 ||
+    cubeState.currentSide === 1 ||
+    cubeState.currentSide === 3;
+
+  const viewingFrontBottomOrTopClass = viewingFrontBottomOrTop
+    ? "cursor-pointer"
+    : "cursor-not-allowed opacity-15";
 
   return (
     <div className="controller-container">
@@ -106,6 +107,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
         })}
       </div>
       <div className="spin-buttons">
+        {/* ********** HORIZONTAL ARROWS ********** */}
         <div className="horizontal-spins spin-buttons">
           {horizontalButtons.map(
             ({ icon, directionSpun, rowSpun, toBeSwappedOut }, index) => {
@@ -131,7 +133,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
             }
           )}
 
-          {/* ********** VERTICAL ARROWS BELOW ********** */}
+          {/* ********** VERTICAL ARROWS ********** */}
         </div>
         <div className="vertical-spins spin-buttons">
           {verticalButtons.map(
@@ -139,11 +141,11 @@ const Controller = ({ cubeDispatch, cubeState }) => {
               return (
                 <span
                   key={index}
-                  className={`btn-arrow ${notViewingFrontClass} ${
+                  className={`btn-arrow ${viewingFrontBottomOrTopClass} ${
                     index === 4 && "cursor-not-allowed opacity-15"
                   }`}
                   onClick={() => {
-                    if (notViewingFront) return;
+                    if (!viewingFrontBottomOrTop) return;
                     cubeDispatch({
                       type: `SPIN_${directionSpun}`,
                       payload: { toBeSwappedOut, colSpun, directionSpun },
