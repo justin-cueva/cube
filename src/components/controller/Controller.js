@@ -12,7 +12,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
 
   return (
     <div className="controller-container">
-      <ScoreContainer />
+      <ScoreContainer cubeDispatch={cubeDispatch} cubeState={cubeState} />
       <ViewBtns cubeDispatch={cubeDispatch} cubeState={cubeState} />
       <div className="icon-btn-container">
         <ShuffleReset cubeDispatch={cubeDispatch} spinBtns={spinBtns} />

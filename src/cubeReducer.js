@@ -13,6 +13,9 @@ export const initialCubeState = {
   bottom: 3,
   right: 4,
   back: 5,
+  score: 0,
+  highScore: 9999,
+  gameIsOn: false,
 };
 
 export const cubeReducer = (state = initialCubeState, action) => {
@@ -105,6 +108,10 @@ export const cubeReducer = (state = initialCubeState, action) => {
     });
   };
   switch (action.type) {
+    case "SET_GAME_IS_ON":
+      return { ...state, gameIsOn: action.payload };
+    case "ADD_TO_SCORE":
+      return { ...state, score: state.score + 0.1 };
     case "SPIN_DOWN":
       if (action.payload.colSpun === "LEFT") {
         const newCurrentSideRotateLeftDown = state.cube[0].map(
