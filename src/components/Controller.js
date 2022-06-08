@@ -43,31 +43,71 @@ const horizontalButtons = [
   },
 ];
 
+const verticalButtons = [
+  {
+    icon: <FaArrowUp />,
+    directionSpun: "UP",
+    colSpun: "LEFT",
+    toBeSwappedOut: [],
+  },
+  {
+    icon: <FaArrowUp />,
+    directionSpun: "UP",
+    colSpun: "RIGHT",
+    toBeSwappedOut: [],
+  },
+  {
+    icon: <FaArrowDown />,
+    directionSpun: "DOWN",
+    colSpun: "LEFT",
+    toBeSwappedOut: [],
+  },
+  {
+    icon: <FaArrowDown />,
+    directionSpun: "DOWN",
+    colSpun: "RIGHT",
+    toBeSwappedOut: [],
+  },
+];
+
 const Controller = ({ cubeDispatch, cubeState }) => {
   const viewingTopOrBottom =
     cubeState.currentSide === 1 || cubeState.currentSide === 3;
-
   const viewingTopOrBottomClass = viewingTopOrBottom
-    ? "cursor-not-allowed"
+    ? "cursor-not-allowed opacity-15"
     : "cursor-pointer";
+
+  const viewingFrontBottomOrTop =
+    cubeState.currentSide === 0 ||
+    cubeState.currentSide === 1 ||
+    cubeState.currentSide === 3;
+
+  const viewingFrontBottomOrTopClass = viewingFrontBottomOrTop
+    ? "cursor-pointer"
+    : "cursor-not-allowed opacity-15";
 
   return (
     <div className="controller-container">
-      <h2 style={{ fontSize: "2rem" }}>Controller</h2>
-      {viewButtons.map(({ view, number }, index) => {
-        const active = cubeState.currentSide === number ? `bg-${number}` : "";
-        return (
-          <button
-            key={index}
-            type="button"
-            className={`view-btn x-${number} ${active}`}
-            onClick={() => cubeDispatch({ type: `VIEW_${view.toUpperCase()}` })}
-          >
-            {view}
-          </button>
-        );
-      })}
+      <h2>Controller</h2>
+      <div>
+        {viewButtons.map(({ view, number }, index) => {
+          const active = cubeState.currentSide === number ? `bg-${number}` : "";
+          return (
+            <button
+              key={index}
+              type="button"
+              className={`view-btn x-${number} ${active}`}
+              onClick={() =>
+                cubeDispatch({ type: `VIEW_${view.toUpperCase()}` })
+              }
+            >
+              {view}
+            </button>
+          );
+        })}
+      </div>
       <div className="spin-buttons">
+        {/* ********** HORIZONTAL ARROWS ********** */}
         <div className="horizontal-spins spin-buttons">
           {horizontalButtons.map(
             ({ icon, directionSpun, rowSpun, toBeSwappedOut }, index) => {
@@ -93,21 +133,30 @@ const Controller = ({ cubeDispatch, cubeState }) => {
             }
           )}
 
-          {/* ********** VERTICAL ARROWS BELOW ********** */}
+          {/* ********** VERTICAL ARROWS ********** */}
         </div>
         <div className="vertical-spins spin-buttons">
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowUp />
-          </span>
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowUp />
-          </span>
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowDown />
-          </span>
-          <span className="btn-arrow cursor-not-allowed">
-            <FaArrowDown />
-          </span>
+          {verticalButtons.map(
+            ({ icon, directionSpun, colSpun, toBeSwappedOut }, index) => {
+              return (
+                <span
+                  key={index}
+                  className={`btn-arrow ${viewingFrontBottomOrTopClass} ${
+                    index === 4 && "cursor-not-allowed opacity-15"
+                  }`}
+                  onClick={() => {
+                    if (!viewingFrontBottomOrTop) return;
+                    cubeDispatch({
+                      type: `SPIN_${directionSpun}`,
+                      payload: { toBeSwappedOut, colSpun, directionSpun },
+                    });
+                  }}
+                >
+                  {icon}
+                </span>
+              );
+            }
+          )}
         </div>
       </div>
     </div>

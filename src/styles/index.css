@@ -23,17 +23,33 @@ button {
   min-height: 100vh;
 }
 
-.cursor-not-allowed {
-  cursor: not-allowed;
+.controller-and-cube-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
 }
 
 .cursor-pointer {
   cursor: pointer;
 }
 
+.opacity-15 {
+  opacity: 0.15;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
 /* COLORS */
 .bg-0 {
-  background-color: #f4f3ee;
+  background-color: #ccc !important;
 }
 .bg-1 {
   background-color: #ff595e;

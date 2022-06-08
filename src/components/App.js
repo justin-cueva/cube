@@ -8,18 +8,7 @@ const App = () => {
   const [cubeState, cubeDispatch] = useReducer(cubeReducer, initialCubeState);
   return (
     <div className="app">
-      <div
-        style={{
-          position: "absolute",
-          top: "37.5%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "5rem",
-        }}
-      >
+      <div className="controller-and-cube-container">
         <Controller cubeDispatch={cubeDispatch} cubeState={cubeState} />
         <Cube cubeDispatch={cubeDispatch} cubeState={cubeState} />
       </div>
