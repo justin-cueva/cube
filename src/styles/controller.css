@@ -45,6 +45,12 @@
   background-color: #6a4c93;
 }
 
+.icon-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
 /* SPIN BUTTONS */
 .spin-buttons {
   width: 10rem;
@@ -55,7 +61,13 @@
   justify-content: center;
 }
 
-.btn-arrow {
+.btn-reset {
+  margin-bottom: 2rem;
+}
+
+.btn-arrow,
+.btn-reset,
+.btn-shuffle {
   font-size: 3rem;
   display: flex;
   align-items: center;
@@ -63,10 +75,14 @@
   transition: all 300ms ease;
 }
 
-.btn-arrow:hover {
+.btn-arrow:hover,
+.btn-reset:hover,
+.btn-shuffle:hover {
   transform: scale(1.2);
 }
 
-.btn-arrow:active {
+.btn-arrow:active,
+.btn-reset:active,
+.btn-shuffle:active {
   transform: scale(1.1);
 }

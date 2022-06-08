@@ -92,6 +92,7 @@ const Controller = ({ cubeDispatch, cubeState }) => {
     <div className="controller-container">
       <h2>Controller</h2>
       <div>
+        {/* ********** VIEW BUTTONS ********** */}
         {viewButtons.map(({ view, number }, index) => {
           const active = cubeState.currentSide === number ? `bg-${number}` : "";
           return (
@@ -108,28 +109,12 @@ const Controller = ({ cubeDispatch, cubeState }) => {
           );
         })}
       </div>
-      <div
-        className="icon-btn-container"
-        style={{ display: "flex", justifyContent: "center", gap: "3rem" }}
-      >
-        <div className="reset-and-shuffle-buttons">
-          <span
-            className="btn-arrow"
-            style={{
-              marginBottom: "2rem",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
-          >
+      <div className="icon-btn-container">
+        <div>
+          <span className="btn-reset cursor-pointer">
             <GrPowerReset />
           </span>
-          <span
-            className="btn-arrow"
-            style={{
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
-          >
+          <span className="btn-shuffle cursor-pointer">
             <ImShuffle />
           </span>
         </div>
