@@ -87,20 +87,24 @@ const Controller = ({ cubeDispatch, cubeState }) => {
 
   return (
     <div className="controller-container">
-      <h2 style={{ fontSize: "2rem" }}>Controller</h2>
-      {viewButtons.map(({ view, number }, index) => {
-        const active = cubeState.currentSide === number ? `bg-${number}` : "";
-        return (
-          <button
-            key={index}
-            type="button"
-            className={`view-btn x-${number} ${active}`}
-            onClick={() => cubeDispatch({ type: `VIEW_${view.toUpperCase()}` })}
-          >
-            {view}
-          </button>
-        );
-      })}
+      <h2>Controller</h2>
+      <div>
+        {viewButtons.map(({ view, number }, index) => {
+          const active = cubeState.currentSide === number ? `bg-${number}` : "";
+          return (
+            <button
+              key={index}
+              type="button"
+              className={`view-btn x-${number} ${active}`}
+              onClick={() =>
+                cubeDispatch({ type: `VIEW_${view.toUpperCase()}` })
+              }
+            >
+              {view}
+            </button>
+          );
+        })}
+      </div>
       <div className="spin-buttons">
         <div className="horizontal-spins spin-buttons">
           {horizontalButtons.map(

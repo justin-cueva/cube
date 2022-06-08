@@ -23,6 +23,18 @@ button {
   min-height: 100vh;
 }
 
+.controller-and-cube-container {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
