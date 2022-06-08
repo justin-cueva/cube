@@ -114,7 +114,11 @@ const Controller = ({ cubeDispatch, cubeState }) => {
 
   return (
     <div className="controller-container">
-      <h2>Controller</h2>
+      {/* <h2>Controller</h2> */}
+      <div className="score-container">
+        <span>Score: {(20.3).toFixed(1)}</span>
+        <span>High Score: {(12.9).toFixed(1)}</span>
+      </div>
       <div className="view-btn-container">
         {/* ********** VIEW BUTTONS ********** */}
         {viewButtons.map(({ view, number }, index) => {
