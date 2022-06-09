@@ -17,17 +17,14 @@ const ScoreContainer = ({ cubeDispatch, cubeState }) => {
       arr.forEach((num, index) => {
         if (num !== indexArr) cubeIsSolved = false;
         if (indexArr === 5 && cubeIsSolved && index === 8) {
-          console.log("solved");
           cubeDispatch({ type: "SOLVED_CUBE" });
+          setTimeout(() => {
+            cubeDispatch({ type: "RESET_SCORE" });
+          }, 102);
         }
       });
     });
-    console.log(cubeIsSolved);
   }, [cubeState.cube]);
-
-  useEffect(() => {
-    if (cubeState.cubeIsSolved) console.log("success");
-  }, [cubeState.cubeIsSolved]);
 
   return (
     <div className="score-container">

@@ -110,8 +110,6 @@ export const cubeReducer = (state = initialCubeState, action) => {
   };
   switch (action.type) {
     case "SOLVED_CUBE":
-      console.log(state.score);
-      console.log(typeof state.score);
       return {
         ...state,
         cubeIsSolved: true,
