@@ -16,6 +16,7 @@ export const initialCubeState = {
   score: 0,
   highScore: 9999.9,
   gameIsOn: false,
+  cubeIsSolved: false,
 };
 
 export const cubeReducer = (state = initialCubeState, action) => {
@@ -108,6 +109,17 @@ export const cubeReducer = (state = initialCubeState, action) => {
     });
   };
   switch (action.type) {
+    case "SOLVED_CUBE":
+      console.log(state.score);
+      console.log(typeof state.score);
+      return {
+        ...state,
+        cubeIsSolved: true,
+        highScore:
+          state.score < state.highScore ? state.score : state.highScore,
+        score: 0,
+        gameIsOn: false,
+      };
     case "RESET_SCORE":
       return { ...state, score: 0, gameIsOn: false };
     case "SET_GAME_IS_ON":
