@@ -39,7 +39,6 @@ const ScoreContainer = ({ cubeDispatch, cubeState }) => {
   return (
     <div className="score-container">
       <span>Score {formatScore(cubeState.score)}</span>
-      {/* <span>Score: {cubeState.score.toFixed(1)}</span> */}
       <span>
         High Score{" "}
         {cubeState.highScore ? formatScore(cubeState.highScore) : "N/A"}
