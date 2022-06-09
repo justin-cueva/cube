@@ -26,10 +26,24 @@ const ScoreContainer = ({ cubeDispatch, cubeState }) => {
     });
   }, [cubeState.cube]);
 
+  const formatScore = (score) => {
+    if (score < 10) return `0${score.toFixed(1)}`;
+    if (score < 60) return `${score.toFixed(1)}`;
+
+    const secondsFormatted =
+      score % 60 < 10 ? `0${(score % 60).toFixed(1)}` : (score % 60).toFixed(1);
+
+    return `${Math.floor(score / 60)}:${secondsFormatted}`;
+  };
+
   return (
     <div className="score-container">
-      <span>Score: {cubeState.score.toFixed(1)}</span>
-      <span>High Score: {cubeState.highScore.toFixed(1)}</span>
+      <span>Score {formatScore(cubeState.score)}</span>
+      {/* <span>Score: {cubeState.score.toFixed(1)}</span> */}
+      <span>
+        High Score{" "}
+        {cubeState.highScore ? formatScore(cubeState.highScore) : "N/A"}
+      </span>
     </div>
   );
 };
